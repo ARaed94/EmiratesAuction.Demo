@@ -17,3 +17,4 @@ o	I have chosen to use ionic as it provides many of the client side (mobile frie
 *	Kindly download and build the solution. This should restore all NuGet packages.
 *	Update the connection string (under DataAccess/appsettings.json)
 *	Then navigate to Clients.Web folder and run the command “npm install” then “ionic serve”. This should kick off the application and it should listen on port 8100 by default (you can specify which port to use)
+* Please update the BaseUrl property found in the client app under \Clients.Web\src\app\config.ts and set it to the API URL.
