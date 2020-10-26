@@ -1,0 +1,31 @@
+<ion-card>
+  <img src="{{auction?.mainHeroImageUrl}}" />
+  <ion-card-header>
+    <ion-card-subtitle>
+      <ion-text color="dark">
+        <h2>{{LocalizedText(auction?.makeAr, auction?.makeEn)}} {{LocalizedText(auction?.modelAr, auction?.modelEn)}}
+          {{auction?.year}}</h2>
+      </ion-text>
+    </ion-card-subtitle>
+    <ion-card-title>
+      <ion-text color="success">
+        <h1>{{formatBid(auction?.currentBid)}}
+          {{LocalizedText(auction?.currencyAr, auction?.currencyEn)}}</h1>
+      </ion-text>
+    </ion-card-title>
+  </ion-card-header>
+  <ion-card-content style="display: flex;justify-content: space-between">
+    <div>
+      <div style="font-size: 20px">{{Localize("Lot")}}#</div>
+      <div style="font-size: 25px; font-weight: bold;">{{auction?.lot}}</div>
+    </div>
+    <div>
+      <div style="font-size: 20px">{{Localize("Bids")}}</div>
+      <div style="font-size: 25px; font-weight: bold;">{{auction?.bids}}</div>
+    </div>
+    <div>
+      <div style="font-size: 20px">{{Localize("TimeLeft")}}</div>
+      <div  [ngStyle]="{'color': auction.almostDone}" style="font-size: 25px; font-weight: bold;">{{auction?.timeLeft}}</div>
+    </div>
+  </ion-card-content>
+</ion-card>

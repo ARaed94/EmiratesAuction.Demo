@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list>
+          <h2 style="padding-left: 20px;">{{Localize("Filters")}}</h2>
+          <ion-item>
+            <ion-label>{{Localize("Make")}}</ion-label>
+            <ion-select (ionChange)="onMakeFilterSelect($event)">
+              <ion-select-option value="-1">{{Localize("None")}}</ion-select-option>
+              <ion-select-option *ngFor="let make of makes" value="{{make?.id}}">
+                {{LocalizedText(make?.titleAr, make?.titleEn)}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>{{Localize("Model")}}</ion-label>
+            <ion-select (ionChange)="onModelFilterSelect($event)">
+              <ion-select-option value="-1">{{Localize("None")}}</ion-select-option>
+              <ion-select-option *ngFor="let model of models" value="{{model?.id}}">
+                {{LocalizedText(model?.titleAr, model?.titleEn)}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-label>{{Localize("Year")}}</ion-label>
+            <ion-select (ionChange)="onYearFilterSelect($event)">
+              <ion-select-option value="-1">{{Localize("None")}}</ion-select-option>
+              <ion-select-option *ngFor="let year of years" value="{{year}}">
+                {{year}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <h2 style="padding-left: 20px;">{{Localize("Language")}}</h2>
+          <ion-button (click)="switchLang()" expand="block">{{SwitchToLang}}</ion-button>
+
+        </ion-list>
+        <ion-button (click)="search()" expand="block">{{Localize("Search")}}</ion-button>
+
+        <h2 style="padding-left: 20px;">Demo</h2>
+        <ion-button (click)="resetData()" color="danger" expand="block">RESET DATA</ion-button>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content">
+    </ion-router-outlet>
+  </ion-split-pane>
+</ion-app>
